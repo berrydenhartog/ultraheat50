@@ -20,14 +20,32 @@ black = "^22.6.0"
 pytest = "^7.1.2"
 coverage = {extras = ["toml"], version = "^6.4.1"}
 pylint = "^2.14.4"
+pytest-mock = "^3.8.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.pytest.ini_options]
+addopts = "--strict-markers"
+
+markers = [
+    "slow"
+]
+testpaths = [
+    "tests"
+]
+
+[tool.black]
+target-version = ['py310']
+
+[tool.coverage.paths]
+source = ["uh50"]
 
 [tool.coverage.run]
-omit = []
+branch = true
+source = ["uh50"]
+omit = ["ultraheat.py"]
 
 [tool.coverage.report]
 fail_under = 100

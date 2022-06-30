@@ -1,5 +1,5 @@
 UltraHeat 50
-=====
+============
 
 UltraHeat 50 is a lightweight `WSGI`_ web application framework.
 
@@ -12,11 +12,11 @@ Install and update using `poetry`_:
 
     $ poetry build
 
-.. _poetry: https://python-poetry.org/docs/
+
 
 
 Linting
-----------
+-------
 
 Linting using `poetry`_:
 
@@ -25,11 +25,9 @@ Linting using `poetry`_:
     $ poetry run black uh50
     $ poetry run pylint uh50
 
-.. _poetry: https://python-poetry.org/docs/
-
 
 testing
-----------
+-------
 
 Test using `poetry`_:
 
@@ -39,11 +37,9 @@ Test using `poetry`_:
     $ poetry run coverage run -m pytest
     $ poetry run coverage report
 
-.. _poetry: https://python-poetry.org/docs/
-
 
 Running
-----------
+-------
 
 Run using `poetry`_:
 
@@ -52,3 +48,4 @@ Run using `poetry`_:
     $ poetry run python uh50
 
 .. _poetry: https://python-poetry.org/docs/
+.. _WSGI: https://wsgi.readthedocs.io/en/latest/what.html

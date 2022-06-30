@@ -22,6 +22,9 @@ def is_float(string):
 
     :param string: str, string to check for date
     """
+    if "." not in string:
+        return False
+
     if string.replace(".", "", 1).isdigit():
         return True
 
