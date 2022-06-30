@@ -1,0 +1,11 @@
+{
+    "files.autoSave": "onFocusChange",
+    "files.exclude": {
+        "**/venv": true
+    },
+
+    "terminal.integrated.defaultProfile.windows": "PowerShell"
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\Users\\user\\AppData\\Roaming\\Python\\Scripts;${env:Path};"
+    }
+}		
