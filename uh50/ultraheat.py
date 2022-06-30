@@ -3,7 +3,7 @@ from time import sleep
 import serial
 
 
-class Uh50: # pragma: no cover
+class Uh50:
     """Create a class to comminicate with Ultraheat 50"""
 
     def __init__(self, comport) -> None:

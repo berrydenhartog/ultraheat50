@@ -8,7 +8,7 @@ class Config(object):
     """Default config object for flask"""
 
     PORT = "/dev/ttyUSB0"
-    if platform.system() == "Windows":
+    if platform.system() == "Windows":  # pragma: no cover
         PORT = "COM3"
 
     TESTING = False

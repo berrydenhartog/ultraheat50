@@ -32,7 +32,7 @@ def create_app(config=None):
     @app.route("/", methods=["GET"])
     @cache.cached()
     def root():
-        myuh50 = Uh50(app.config["PORT"])  # for windows, for linux it is /dev/<device>
+        myuh50 = Uh50(app.config["PORT"]) 
         data = myuh50.readdata()
         uhresponse = UHResponse.from_uh50_data(data)
         return jsonify(uhresponse.dict())

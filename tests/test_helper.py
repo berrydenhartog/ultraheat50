@@ -9,3 +9,4 @@ def test_is_float():
 
 def test_is_date():
     assert is_date("2012-02-19") == True
+    assert is_date("2012XXX") == False

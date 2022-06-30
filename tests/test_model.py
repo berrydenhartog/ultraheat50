@@ -1,33 +1,10 @@
-import pytest
-from uh50 import create_app
-from uh50.ultraheat import Uh50
-from datetime import datetime
+from uh50.models import UHResponse
 
 
-@pytest.fixture()
-def app():
-    app = create_app(
-        {
-            "TESTING": True,
-            "CACHE_TYPE": "SimpleCache",
-        }
-    )
+def test_UHResponse():
 
-    yield app
-
-
-@pytest.fixture()
-def client(app):
-    return app.test_client()
-
-
-@pytest.fixture
-def mock_response(monkeypatch):
-    def mock_init(self, comport):
-        pass
-
-    def mock_readdata(self):
-        return [
+    uhresponse = UHResponse.from_uh50_data(
+        [
             "6.8(0203.951*GJ)6.26(02062.98*m3)9.21(00000000)",
             "6.26*01(01968.44*m3)6.8*01(0192.076*GJ)",
             "F(0)9.20(00000000)6.35(60*m)",
@@ -52,31 +29,7 @@ def mock_response(monkeypatch):
             "6.26.1()6.26.4()6.26.5()",
             "6.26.1*01()6.26.4*01()6.26.5*01()0.0(00000000)",
         ]
+    )
 
-    monkeypatch.setattr(Uh50, "__init__", mock_init)
-    monkeypatch.setattr(Uh50, "readdata", mock_readdata)
-
-
-def test_request_home(client, mock_response):
-    response = client.get("/")
-
-    assert response.status_code == 200
-    assert response.json["QuantityOfHeat"] == 203.951
-    assert response.json["Volume"] == 2062.98
-    assert response.json["MeterDateTime"] == "Thu, 30 Jun 2022 13:40:07 GMT"
-
-def check_app():
-    app = create_app()
-
-    assert isinstance(app, None)
-
-def test_request_home(client):
-    response = client.get("/notfound")
-
-    assert response.status_code == 404
-
-
-def test_request_home(client):
-    response = client.get("/")
-
-    assert response.status_code == 500
+    assert uhresponse.QuantityOfHeat == 203.951
+    assert uhresponse.Volume == 2062.98

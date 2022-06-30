@@ -45,7 +45,10 @@ source = ["uh50"]
 [tool.coverage.run]
 branch = true
 source = ["uh50"]
-omit = ["ultraheat.py"]
+omit = [
+    "uh50\\ultraheat.py",
+    "uh50\\__main__.py"
+    ]
 
 [tool.coverage.report]
 fail_under = 100
