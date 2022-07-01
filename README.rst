@@ -58,7 +58,7 @@ Run using `precommit`_:
 
 .. code-block:: text
 
-    $ poetry run precommit install
+    $ poetry run pre-commit install
     $ poetry run pre-commit run --all-files
 
 

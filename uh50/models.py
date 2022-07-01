@@ -1,9 +1,11 @@
 """classes for UH50"""
 from datetime import datetime
-from dateutil import parser
-from .helpers import is_date, is_float
-from pydantic import BaseModel
 from typing import Optional
+
+from dateutil import parser
+from pydantic import BaseModel
+
+from .helpers import is_date, is_float
 
 
 class UHResponse(BaseModel):

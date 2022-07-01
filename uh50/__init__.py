@@ -5,14 +5,14 @@ from flask import Flask, jsonify
 from flask_caching import Cache
 from werkzeug.exceptions import HTTPException
 
+from .config import Config
+from .models import UHResponse
+from .ultraheat import Uh50
+
 
 def create_app(config=None):
     """Creates and returns a Flask app"""
     app = Flask(__name__)
-
-    from .ultraheat import Uh50
-    from .config import Config
-    from .models import UHResponse
 
     app.config.from_object(Config)
 

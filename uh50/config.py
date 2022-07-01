@@ -1,10 +1,10 @@
 """Config class"""
-from dataclasses import dataclass
 import platform
+from dataclasses import dataclass
 
 
 @dataclass
-class Config(object):
+class Config:
     """Default config object for flask"""
 
     PORT = "/dev/ttyUSB0"

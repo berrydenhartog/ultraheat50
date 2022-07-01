@@ -6,6 +6,6 @@
 
     "terminal.integrated.defaultProfile.windows": "PowerShell"
     "terminal.integrated.env.windows": {
-        "PATH": "C:\\Users\\user\\AppData\\Roaming\\Python\\Scripts;${env:Path};"
+        "PATH": "C:\\Users\\user\\AppData\\Roaming\\Python\\Scripts;C:\\Users\\user\\AppData\\Roaming\\Python\\Python310\\Scripts;${env:Path};"
     }
 }		

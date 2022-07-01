@@ -1,4 +1,5 @@
 import pytest
+
 from uh50 import create_app
 from uh50.ultraheat import Uh50
 
