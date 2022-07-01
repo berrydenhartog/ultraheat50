@@ -51,5 +51,17 @@ Run using `poetry`_:
 
     $ poetry run python uh50
 
+Autolinter
+-------
+
+Run using `precommit`_:
+
+.. code-block:: text
+
+    $ poetry run precommit install
+    $ poetry run pre-commit run --all-files
+
+
 .. _poetry: https://python-poetry.org/docs/
 .. _WSGI: https://wsgi.readthedocs.io/en/latest/what.html
+.. _precommit: https://pre-commit.com/
