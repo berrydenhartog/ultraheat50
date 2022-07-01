@@ -14,6 +14,8 @@ Flask = "^2.1.2"
 Flask-Caching = "^2.0.0"
 pydantic = "^1.9.1"
 dateutils = "^0.6.12"
+flake8 = "^4.0.1"
+pyproject-flake8 = "^0.0.1-alpha.4"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"
@@ -51,4 +53,9 @@ omit = [
     ]
 
 [tool.coverage.report]
-fail_under = 100
+fail_under = 99
+
+[tool.flake8]
+max-line-length = 140
+extend-ignore = "E203,"
+max-complexity = 10

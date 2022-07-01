@@ -1,7 +1,6 @@
 import pytest
 from uh50 import create_app
 from uh50.ultraheat import Uh50
-from datetime import datetime
 
 
 @pytest.fixture()
@@ -57,7 +56,7 @@ def mock_response(monkeypatch):
     monkeypatch.setattr(Uh50, "readdata", mock_readdata)
 
 
-def test_request_home(client, mock_response):
+def test_request_home_mocked(client, mock_response):
     response = client.get("/")
 
     assert response.status_code == 200
@@ -65,12 +64,14 @@ def test_request_home(client, mock_response):
     assert response.json["Volume"] == 2062.98
     assert response.json["MeterDateTime"] == "Thu, 30 Jun 2022 13:40:07 GMT"
 
+
 def check_app():
     app = create_app()
 
     assert isinstance(app, None)
 
-def test_request_home(client):
+
+def test_request_home_notfound(client):
     response = client.get("/notfound")
 
     assert response.status_code == 404

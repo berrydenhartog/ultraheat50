@@ -13,6 +13,6 @@ class Config(object):
 
     TESTING = False
     DEBUG = False
-    CACHE_TYPE: "SimpleCache"
-    CACHE_DEFAULT_TIMEOUT: 3600
-    SECRET_KEY: "sadfbiytOybbsadfn"
+    CACHE_TYPE = "SimpleCache"
+    CACHE_DEFAULT_TIMEOUT = 3600
+    SECRET_KEY = "sadfbiytOybbsadfn"

@@ -24,6 +24,10 @@ Linting using `poetry`_:
 
     $ poetry run black uh50
     $ poetry run pylint uh50
+    $ poetry run pflake8 uh50
+    $ poetry run black tests
+    $ poetry run pylint tests
+    $ poetry run pflake8 tests
 
 
 testing
