@@ -1,0 +1,13 @@
+[Unit]
+    Description=warmtemeter
+    After=network.target
+
+[Service]
+    User=berry
+    Group=berry
+    WorkingDirectory=/home/berry/projects/ultraheat50/
+    Environment=PYTHONPATH=/home/berry/projects/ultraheat50/
+    ExecStart=/home/berry/.poetry/bin/poetry run python uh50
+
+[Install]
+    WantedBy=multi-user.target

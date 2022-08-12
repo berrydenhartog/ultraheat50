@@ -46,6 +46,11 @@ class UHResponse(BaseModel):
     # 6.36*02(01&00:00) - Monthly Set Day
     # 9.1(0&0&0&0000&0000&0000&0&0.00&0.00&0&000008&000000&00&0) - settings and firmware
 
+    def __str__(self):
+        return (
+            f"{self.QuantityOfHeat:.2f} GJ, {self.Volume:.2f} m3, {self.MeterDateTime}"
+        )
+
     @staticmethod
     def from_uh50_data(heat_data):
         """convert data to model"""

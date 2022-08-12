@@ -8,12 +8,13 @@ license = "Apache-2.0"
 readme = "README.rst"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 pyserial = "^3.5"
 Flask = "^2.1.2"
 Flask-Caching = "^2.0.0"
 pydantic = "^1.9.1"
 dateutils = "^0.6.12"
+importlib-metadata = "^4.12.0"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"

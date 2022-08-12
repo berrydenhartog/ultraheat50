@@ -54,7 +54,7 @@ class Uh50:  # pylint: disable=R0903,C0301
 
         # Wait for data
         ir_buffer = ""
-        ir_lines = None
+        ir_lines = []
         etx = False
         while not etx:
             ir_buffer = str(self.ser.readline(), "utf-8")
