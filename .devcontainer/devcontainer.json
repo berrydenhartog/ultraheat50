@@ -1,0 +1,45 @@
+{
+    "name": "Project Dev",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "containerEnv": {
+      "DEVCONTAINER": "1",
+      "PYTHONASYNCIODEBUG": "1",
+      "POETRY_VIRTUALENVS_CREATE": "false"
+    },
+    "remoteUser": "root",
+    "features": {
+      "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+    "postCreateCommand": ".devcontainer/postCreateCommand.sh",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-python.python",
+          "editorconfig.editorconfig",
+          "streetsidesoftware.code-spell-checker",
+          "redhat.vscode-yaml",
+          "charliermarsh.ruff",
+          "mhutchie.git-graph"
+        ],
+        "settings": {
+          "editor.formatOnPaste": false,
+          "editor.formatOnSave": true,
+          "editor.formatOnType": true,
+          "editor.renderWhitespace": "boundary",
+          "files.trimTrailingWhitespace": true,
+          "terminal.integrated.inheritEnv": true,
+          "debug.toolBarLocation": "commandCenter",
+          "terminal.integrated.profiles.linux": {
+            "zsh": {
+              "path": "/usr/bin/zsh"
+            }
+          },
+          "terminal.integrated.defaultProfile.linux": "zsh",
+          "[python]": {
+            "editor.defaultFormatter": "charliermarsh.ruff"
+          }
+        }
+      }
+    }
+  }
+  

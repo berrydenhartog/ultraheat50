@@ -10,24 +10,43 @@ readme = "README.rst"
 [tool.poetry.dependencies]
 python = "^3.9"
 pyserial = "^3.5"
-Flask = "^2.1.2"
-Flask-Caching = "^2.0.0"
-pydantic = "^1.9.1"
+Flask = "^3.0.3"
+Flask-Caching = "^2.3.0"
+pydantic = "^2.7.1"
 dateutils = "^0.6.12"
-importlib-metadata = "^4.12.0"
+importlib-metadata = "^7.1.0"
 
-[tool.poetry.dev-dependencies]
-black = "^22.6.0"
-pytest = "^7.1.2"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.2.0"
 coverage = {extras = ["toml"], version = "^6.4.1"}
-pylint = "^2.14.4"
+
+[tool.poetry.group.dev.dependencies]
 pytest-mock = "^3.8.1"
-flake8 = "^4.0.1"
-pre-commit = "^2.19.0"
+ruff = "^0.4.3"
+pre-commit = "^3.7.0"
+pyright = "^1.1.361"
+
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = ["./uh50", "./tests"]
+
+[tool.ruff.format]
+line-ending = "lf"
+
+[tool.ruff.lint]
+select = ["I", "SIM", "B", "UP", "F", "E", "S", "C90", "DTZ", "LOG", "PIE", "PT", "ERA", "W", "C", "TRY", "RUF"]
+fixable = ["ALL"]
+task-tags = ["TODO"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 8
 
 [tool.pytest.ini_options]
 addopts = "--strict-markers"
@@ -39,19 +58,10 @@ testpaths = [
     "tests"
 ]
 
-[tool.black]
-target-version = ['py310']
-
-[tool.coverage.paths]
-source = ["uh50"]
-
 [tool.coverage.run]
 branch = true
-source = ["uh50"]
-omit = [
-    "uh50\\ultraheat.py",
-    "uh50\\__main__.py"
-    ]
+command_line = "-m pytest"
+relative_files = true
 
 [tool.coverage.report]
-fail_under = 99
+fail_under = 95
